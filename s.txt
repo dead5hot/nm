@@ -1,0 +1,45 @@
+alpha[1] = b[1]; alpha[i] = b[i] - a[i] * c[i-1] / alpha[i-1];
+beta[1] = d[1] / b[1];beta[i] = (d[i] - a[i] * beta[i-1]) / alpha[i];
+x[n] = beta[n];  x[i] = beta[i] - c[i] * x[i+1] / alpha[i];
+
+D fx(0) fy(0)
+  gx(0)  gy(0)
+
+Dx f(0) fy(0)
+  g(0)  gy(0) 
+
+x1 = x0-(Dx/D) 
+
+Trapezoidal Rule  h/2 + 2*(rest)     -h^2(b-a)/12 * [f''(x)]max
+Simpson’s 1/3 Rule h/3  2*even + 4 *rest     -h^4(b-a)/180
+Simpson’s 3/8 Rule  3h/8  2* (multiple of 3)+ 3*(rest)    -h^4(b-a)/80
+Weddle’s Rule  3h/10  1516151 (o to 6 ) +(6 to 12)      -h^6(b-a)/840
+
+runge-kutta 
+k1 = h * f(x0, y);
+k2 = h * f(x0 + 0.5*h, y + 0.5*k1);
+k3 = h * f(x0 + 0.5*h, y + 0.5*k2);
+k4 = h * f(x0 + h, y + k3);
+
+
+modified euler
+y1* = y0+ h*f(x0,y0)
+y1 = y0 + h/2 * (f(x0,y0)+f(x1,y1*))
+
+ODE 
+put y' = (yi+1 - yi-1) / 2h
+    y'' = (yi+1 -2yi + yi-1) / h^2
+
+Laplace  && poision 
+centre -- standard 5 point formula
+4 -- diagonal formula 
+standard 5 point formula
+
+heat euqation
+ 
+
+
+
+
+
+
